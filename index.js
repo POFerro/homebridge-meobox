@@ -122,10 +122,13 @@ MeoBox.prototype.getPowerState = function(callback) {
 								updateChannel(0);
 							}, 500);
 						} else {
+							console.warn("Failed to retreive box status: ", err, result);
+
 							onFinished(false);
 						}
 					});
 				} else {
+					console.warn("Failed to retreive box status: ", error, response, body);
 					onFinished(false);
 				}
 			});
