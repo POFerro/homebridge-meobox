@@ -31,11 +31,12 @@ function MeoBox(log, config, api) {
 
 MeoBox.prototype.setPowerState = function(powerOn, callback) {
 	var meoConfig = this.config;
+	var _this = this;
 	meo(meoConfig.ip, function(err, api) {
 		if (err) {
 			console.log(err);
 		} else {
-			this.getPowerState(function (cenas, state) {
+			_this.getPowerState(function (cenas, state) {
 				if (state !== powerOn) {
 					console.info("[Meo Box] Request to setPowerState to " + powerOn + ", current state is: " + state + " sending power button command");
 					api.sendKey('power');

@@ -1,6 +1,6 @@
 {
   "name": "homebridge-meobox-idempotent",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Meo Box plugin for homebridge, idempotent power function version",
   "license": "Apache 2",
   "author": "POFerro <pjfsferro@gmail.com>",
