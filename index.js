@@ -35,11 +35,19 @@ MeoBox.prototype.setPowerState = function(powerOn, callback) {
 		if (err) {
 			console.log(err);
 		} else {
-			api.sendKey('power');
+			this.getPowerState(function (cenas, state) {
+				if (state !== powerOn) {
+					console.info("[Meo Box] Request to setPowerState to " + powerOn + ", current state is: " + state + " sending power button command");
+					api.sendKey('power');
+				}
+				else
+					console.info("[Meo Box] Request to setPowerState to " + powerOn + " and current state is: " + state + " are the same so doing nothing");
+
+				if (api.close)
+					api.close();
+				callback();
+			})
 		}
-		if(api.close)
-			api.close();
-		callback();
 	});
 };
 	

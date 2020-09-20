@@ -1,3 +1,10 @@
+This is a fork of Diogo Raminhos homebridge-meobox plugin: https://github.com/WhiteaglePT/homebridge-meobox
+The only difference is that power function is idempotent, meaning it doesn't power off on homebridge command to power on when box is already turned on
+
+ install instructions for this version of the plugin are to execute this command:
+ npm install -g homebridge-meobox-idempotent
+ All remaining instructions remain the same
+
 # homebridge-meobox
 Homebridge plugin for configuring the meo box
 
