@@ -9,6 +9,7 @@ module.exports = function(homebridge) {
 }
 
 function MeoBox(log, config, api) {
+	this.log = log;
 	this.config = config;
 	this.name = config.name || 'Meo Box';
 	this.status = false;
@@ -24,13 +25,13 @@ function MeoBox(log, config, api) {
     			.setCharacteristic(Characteristic.Model, 'Meo Box HD')
     			.setCharacteristic(Characteristic.SerialNumber, config.deviceId);
 
-    console.info("[Meo Box] Initialized box with IP "+config.ip+".");
+	this.log.info("Initialized box with IP "+config.ip+".");
 }
 
 MeoBox.prototype.setPowerState = function(powerOn, callback) {
 	var meoConfig = this.config;
 	var _this = this;
-	console.info("[Meo Box] Setting box with IP " + meoConfig.ip + " state to: " + powerOn + ".");
+	this.log.info("Setting box with IP " + meoConfig.ip + " state to: " + powerOn + ".");
 	meo(meoConfig.ip, function(err, api) {
 		if (err) {
 			console.log(err);
@@ -47,7 +48,7 @@ MeoBox.prototype.setPowerState = function(powerOn, callback) {
 // Not used, can't find a good way to do it	
 MeoBox.prototype.getPowerState = function (callback) {
 	var meoConfig = this.config;
-	console.info("[Meo Box] Checking if box with IP " + meoConfig.ip + " is online.");
+	this.log.info("Checking if box with IP " + meoConfig.ip + " is online.");
 	callback(null, this.status);
 };
 
