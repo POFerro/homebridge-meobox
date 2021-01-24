@@ -1,21 +1,41 @@
 {
-  "name": "homebridge-meobox-idempotent",
-  "version": "1.1.17",
+  "name": "homebridge-meobox-bypof",
+  "version": "1.0.5",
   "description": "Meo Box plugin for homebridge, idempotent power function version",
-  "license": "Apache 2",
+  "main": "dist/meobox-accessory.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "rimraf ./dist && tsc",
+    "prepublishOnly": "npm run build",
+    "postpublish": "npm run clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "POFerro <pjfsferro@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/POFerro/homebridge-meobox.git"
+  "engines": {
+    "homebridge": ">=1.0.0"
   },
   "keywords": [
     "homebridge-plugin"
   ],
+  "license": "ISC",
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/POFerro/homebridge-meobox.git"
+  },
+  "bugs": {
+    "url": "http://github.com/POFerro/homebridge-meobox/issues"
+  },
   "dependencies": {
     "meo-controller": "JosePedroDias/meo-controller"
   },
-  "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
+  "devDependencies": {
+    "@types/node": "10.17.19",
+    "typescript": "^3.8.3",
+    "rimraf": "^3.0.2",
+    "homebridge": "^1.0.4"
   }
 }
