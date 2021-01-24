@@ -1,6 +1,6 @@
 {
   "name": "homebridge-meobox-idempotent",
-  "version": "1.1.5",
+  "version": "1.1.14",
   "description": "Meo Box plugin for homebridge, idempotent power function version",
   "license": "Apache 2",
   "author": "POFerro <pjfsferro@gmail.com>",
@@ -12,9 +12,7 @@
     "homebridge-plugin"
   ],
   "dependencies": {
-    "meo-controller": "JosePedroDias/meo-controller",
-    "request": "^2.81.0",
-    "xml2js": "^0.4.17"
+    "meo-controller": "JosePedroDias/meo-controller"
   },
   "engines": {
     "node": ">=0.12.0",
